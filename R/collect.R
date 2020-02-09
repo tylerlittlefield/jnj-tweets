@@ -10,8 +10,8 @@ df_old_tweets <- s3readRDS(
   bucket = "tylerlittlefield"
 )
 
-df_new_tweets <- search_tweets(
-  q = '"johnson and johnson" OR "johnson & johnson"', 
+df_new_tweets <- search_tweets2(
+  q = c('"johnson and johnson"', '"johnson & johnson"'),
   n = 18000, 
   include_rts = FALSE, 
   retryonratelimit = TRUE, 

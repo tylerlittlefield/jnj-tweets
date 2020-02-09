@@ -1,0 +1,6 @@
+.Rhistory
+.RData
+.Rproj.user
+.rtweet_token2.rds
+.Renviron
+R/collect.log

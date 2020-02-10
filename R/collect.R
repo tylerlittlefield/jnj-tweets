@@ -31,8 +31,8 @@ df_new_tweets %>%
 # cronR::cron_add(
 #   command = "cd /home/tyler/dev/jnj-tweets && /usr/bin/Rscript 'R/collect.R' >> 'R/collect.log' 2>&1",
 #   frequency = "daily",
-#   at = "3AM",
+#   at = "10PM",
 #   id = "JNJ Tweets",
 #   tags = "#rstats, #twitter, #data",
-#   description = "Collects twitter data with 'johnson and johnson' or 'johnson & johnson' in text, everyday at 3AM."
+#   description = "Collects twitter data with 'johnson and johnson' or 'johnson & johnson' in text, everyday at 10PM."
 # )

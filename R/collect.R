@@ -17,7 +17,7 @@ df_new_tweets <- search_tweets2(
   retryonratelimit = TRUE, 
   verbose = FALSE, 
   token = readRDS(".rtweet_token2.rds")
-  )
+)
 
 df_new_tweets %>% 
   filter(!status_id %in% df_old_tweets$status_id) %>% 

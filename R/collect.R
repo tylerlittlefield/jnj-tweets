@@ -11,7 +11,7 @@ df_old_tweets <- s3readRDS(
 )
 
 df_new_tweets <- search_tweets2(
-  q = c('"johnson and johnson"', '"johnson & johnson"'),
+  q = c('"johnson and johnson"', '"johnson & johnson"', "#jnj"),
   n = 18000, 
   include_rts = FALSE, 
   retryonratelimit = TRUE, 

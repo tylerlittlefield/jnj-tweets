@@ -48,7 +48,7 @@ cat(glue("[{Sys.Date()}] Collecting {nrow(df_append_to_db)} new tweets...\n\n"))
 dbWriteTable(con, "jnj_twitter", df_append_to_db, append = TRUE)
 
 # disconnect
-dbDisonnect(con)
+dbDisconnect(con)
 
 # cronR::cron_add(
 #   command = "cd /home/tyler/dev/jnj-tweets && /usr/bin/Rscript 'R/collect-db.R' >> 'R/collect-db.log' 2>&1",

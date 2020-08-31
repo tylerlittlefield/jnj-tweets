@@ -4,3 +4,4 @@
 .rtweet_token2.rds
 .Renviron
 R/collect.log
+config.yml

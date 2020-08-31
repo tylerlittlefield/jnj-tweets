@@ -51,7 +51,7 @@ dbWriteTable(con, "jnj_twitter", df_append_to_db, append = TRUE)
 dbDisonnect(con)
 
 # cronR::cron_add(
-#   command = "cd /home/tyler/dev/jnj-tweets && /usr/bin/Rscript 'R/collect.R' >> 'R/collect.log' 2>&1",
+#   command = "cd /home/tyler/dev/jnj-tweets && /usr/bin/Rscript 'R/collect-db.R' >> 'R/collect-db.log' 2>&1",
 #   frequency = "daily",
 #   at = "10PM",
 #   id = "JNJ Tweets",

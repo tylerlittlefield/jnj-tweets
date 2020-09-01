@@ -28,7 +28,7 @@ cur_ids <- tbl(con, "jnj_twitter") %>%
 
 # collect new tweets
 df_new_tweets <- search_tweets2(
-  q = c('"johnson and johnson"', '"johnson & johnson"', "#jnj", "janssen", "ethicon", "biosense webster", "depuy"),
+  q = c('"johnson and johnson"', '"johnson & johnson"', "#jnj", "#janssen", "ethicon", "biosense webster", "depuy"),
   n = 18000,
   include_rts = FALSE, 
   retryonratelimit = TRUE, 

@@ -22,13 +22,31 @@ con <- DBI::dbConnect(
 )
 
 # currently collected tweets (status IDs)
-cur_ids <- tbl(con, "jnj_twitter") %>% 
+cur_ids <- tbl(con, in_schema("twitter", "jnj")) %>% 
   distinct(status_id) %>% 
   collect()
 
 # collect new tweets
 df_new_tweets <- search_tweets2(
-  q = c('"johnson and johnson"', '"johnson & johnson"', "#jnj", "#janssen", "ethicon", "biosense webster", "depuy"),
+  q = c(
+    '"johnson and johnson"', 
+    '"johnson & johnson"', 
+    "#jnj", 
+    "#janssen", 
+    "ethicon", 
+    "biosense webster", 
+    "#bwi",
+    "depuy",
+    "#amo",
+    "#asp",
+    "actelion",
+    "#jrd",
+    '"jan-cil"',
+    "#mentorimplants",
+    "#synthes",
+    "vistakon",
+    "#mycompany"
+  ),
   n = 18000,
   include_rts = FALSE, 
   retryonratelimit = TRUE, 
@@ -45,7 +63,7 @@ df_append_to_db <- df_new_tweets %>%
 cat(glue("[{Sys.Date()}] Collecting {nrow(df_append_to_db)} new tweets...\n\n"))
 
 # append to the database table
-dbWriteTable(con, "jnj_twitter", df_append_to_db, append = TRUE)
+dbWriteTable(con, SQL("twitter.jnj"), df_append_to_db, append = TRUE)
 
 # disconnect
 dbDisconnect(con)

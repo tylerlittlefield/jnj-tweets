@@ -51,7 +51,7 @@ df_new_tweets <- search_tweets2(
   include_rts = FALSE, 
   retryonratelimit = TRUE, 
   verbose = FALSE, 
-  token = readRDS(".rtweet_token2.rds")
+  token = readRDS("~/.rtweet_token.rds")
 )
 
 # get status IDs that we currently do not have
@@ -69,7 +69,7 @@ dbWriteTable(con, SQL("twitter.jnj"), df_append_to_db, append = TRUE)
 dbDisconnect(con)
 
 # cronR::cron_add(
-#   command = "cd /home/tyler/dev/jnj-tweets && /usr/bin/Rscript 'R/collect-db.R' >> 'R/collect-db.log' 2>&1",
+#   command = "cd ~/data-pipelines/jnj-tweets && /usr/bin/Rscript 'R/collect-db.R' >> 'R/collect-db.log' 2>&1",
 #   frequency = "daily",
 #   at = "10PM",
 #   id = "JNJ Tweets",

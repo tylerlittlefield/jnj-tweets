@@ -5,9 +5,11 @@ suppressPackageStartupMessages({
   library(rtweet)
 })
 
+s3_bucketname <- Sys.getenv("TWEETS_S3_BUCKETNAME")
+
 df_old_tweets <- s3readRDS(
   object = "jnj_tweets.rds",
-  bucket = "tylerlittlefield"
+  bucket = s3_bucketname
 )
 
 df_new_tweets <- search_tweets2(
@@ -25,7 +27,7 @@ df_new_tweets %>%
   bind_rows(df_old_tweets) %>% 
   s3saveRDS(
     object = "jnj_tweets.rds", 
-    bucket = "tylerlittlefield",
+    bucket = s3_bucketname,
     multipart = TRUE
   )
 
